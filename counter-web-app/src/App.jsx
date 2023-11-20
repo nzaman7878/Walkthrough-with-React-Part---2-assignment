@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import React from "react"
 
+// Define the main component named App
 function App() {
-  const [count, setCount] = useState(0)
+  // Initialize state variable 'counter' with an initial value of 0
+  const [counter, setCounter] = React.useState(0);
 
+  // Return the JSX representing the component's UI
   return (
-    <>
+    <div id='parent'>
+      {/* Display the current value of the counter */}
+      <h1>{counter}</h1>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {/* Button to increment the counter when clicked */}
+        <button onClick={() => { setCounter(counter + 1) }}>Increment</button>
+        {/* Button to decrement the counter when clicked */}
+        <button onClick={() => { setCounter(counter - 1) }}>Decrement</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+// Export the App component as the default export of this module
+export default App;
